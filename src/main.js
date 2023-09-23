@@ -6,7 +6,6 @@ import "./assets/main.scss";
 import BaseButton from './components/ui/BaseButton.vue';
 import BaseSpinner from './components/ui/BaseSpinner.vue';
 
-
 import App from './App.vue'
 import router from './router'
 

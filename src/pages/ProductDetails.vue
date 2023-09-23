@@ -3,7 +3,7 @@
         <div class="card">
             <li class="item">
                 <div class="img">
-                    <img :src="`${product.image}`" alt="product for sell">
+                    <img :src="product.image" alt="product for sell">
                 </div>
                 <div class="info">
                     <h3>{{ product.name }}</h3>
@@ -14,7 +14,6 @@
         </div>
     </div>
 </template>
-
 <script setup>
 import { reactive, onMounted } from 'vue'
 import { useProductStore } from '../stores/ProductStore';
@@ -37,10 +36,8 @@ onMounted(() => {
     product.price = selectedProduct.price
     product.description = selectedProduct.description
 })
-
 </script>
-
-<style lang="scss">
+<style lang="scss" scoped>
 .box {
     padding-top: 2rem;
 }
@@ -85,9 +82,7 @@ onMounted(() => {
             }
         }
     }
-
 }
-
 
 @media (min-width: 768px) {
     .card {

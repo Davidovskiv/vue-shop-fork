@@ -20,8 +20,7 @@ const productId = () => {
         </li>
     </div>
 </template>
-
-<style lang="scss">
+<style lang="scss" scoped>
 .card {
     display: flex;
     justify-content: center;
@@ -32,7 +31,6 @@ const productId = () => {
     background-color: #484848;
     padding: 1rem;
     margin: 2rem 1.5rem;
-
     .item {
         display: flex;
         flex-direction: column;
@@ -41,14 +39,12 @@ const productId = () => {
         width: 95%;
         height: 300px;
         list-style: none;
-
         img {
             width: 250px;
             height: 150px;
             object-fit: cover;
             border-radius: 12px;
         }
-
         .info {
             display: flex;
             flex-direction: column;
@@ -56,7 +52,6 @@ const productId = () => {
             align-items: center;
             height: 130px;
             padding: 1rem;
-
             .details-btn {
                 margin: 0;
                 padding: 0.75rem 5rem;
@@ -65,13 +60,10 @@ const productId = () => {
     }
 
 }
-
-
 @media (min-width: 768px) {
     .card {
         padding: 2rem;
         margin: 2rem 5rem;
-
         .item {
             display: flex;
             flex-direction: row;
@@ -80,14 +72,12 @@ const productId = () => {
             width: 95%;
             height: 300px;
             list-style: none;
-
             img {
                 width: 300px;
                 height: 270px;
                 object-fit: cover;
                 border-radius: 12px;
             }
-
             .info {
                 display: flex;
                 flex-direction: column;
@@ -96,7 +86,6 @@ const productId = () => {
                 height: 300px;
                 width: 250px;
                 padding: 1rem;
-
                 .details-btn {
                     margin: 0;
                     padding: 0.75rem 5rem;
@@ -105,13 +94,11 @@ const productId = () => {
         }
     }
 }
-
 @media (min-width: 1200px) {
     .card {
         padding: 2rem;
         margin: 2rem auto;
         width: 1000px;
-
         .item {
             .info {
                 width: 350px;

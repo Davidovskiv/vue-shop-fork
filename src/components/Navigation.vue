@@ -5,7 +5,6 @@
         </div>
     </div>
 </template>
-
 <style lang="scss" scoped>
 .nav {
     position: fixed;
