@@ -3,10 +3,9 @@ import ProductCard from '../components/ProductCard.vue';
 import { computed, ref } from 'vue';
 import { useProductStore } from '../stores/ProductStore';
 let search = ref('')
-
 const fetchProducts = computed(() => {
     const productsStore = useProductStore()
-    const products = productsStore.getProducts
+    const products = productsStore.products
     return products.filter((product) => {
         if (search.value === '') { return true }
         if (product.name.toLocaleLowerCase().includes(search.value.toLocaleLowerCase())) {
@@ -28,7 +27,8 @@ const fetchProducts = computed(() => {
     </ul>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
 .header {
     display: flex;
     flex-direction: column;
@@ -74,8 +74,6 @@ const fetchProducts = computed(() => {
 
 @media (min-width: 768px) {
     .header {
-
-
         .tittle {
             font-size: 5.2rem;
             margin-bottom: 2rem;

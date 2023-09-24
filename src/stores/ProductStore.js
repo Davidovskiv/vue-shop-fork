@@ -1,6 +1,8 @@
 import { defineStore } from "pinia";
+import { ref } from 'vue'
+
 export const useProductStore = defineStore("ProductStore", () => {
-  const products = [
+  const products = ref([
     {
       id: 1,
       name: "Xbox Series X",
@@ -22,10 +24,11 @@ export const useProductStore = defineStore("ProductStore", () => {
       price: 240,
       description: "LG makes great gaming monitors and they have a wide selection of displays available, from high-end to budget-friendly monitors."
     },
-  ]
+  ])
+  const getProductLength = () => { return products.value.length }
 
-  function addProduct(product) {
-    const lastId = this.getId
+  const addProduct = (product) => {
+    const lastId = getProductLength()
     const newProduct = {
       id: lastId + 1,
       name: product.name,
@@ -33,10 +36,9 @@ export const useProductStore = defineStore("ProductStore", () => {
       price: product.price,
       description: product.description
     }
-    this.products.push(newProduct)
+    products.value.push(newProduct)
   }
-  const getId = products.length
   return {
-    products, addProduct, getId
+    products, addProduct, getProductLength
   }
-});
+})

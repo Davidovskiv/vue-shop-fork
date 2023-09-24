@@ -37,43 +37,41 @@
         </div>
     </VeeForm>
 </template>
-
 <script setup>
 import { useProductStore } from '../stores/ProductStore';
 const productsStore = useProductStore()
-import { ref, reactive } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 let sending = ref(false)
 let isLoading = ref(false)
 
+const router = useRouter()
+
 const imagePreview = ref(null)
-const product = reactive({
+const product = ref({
     name: '',
     image: null,
     price: null,
     description: '',
 })
-
-const router = useRouter()
-
 const onFileSelected = (e) => {
     const reader = new FileReader()
     reader.onload = (event) => {
         imagePreview.value = event.target.result
-        product.image = event.target.result
+        product.value.image = event.target.result
     }
-    reader.readAsDataURL(product.image)
+    reader.readAsDataURL(product.value.image)
 }
 const deleteImage = () => {
-    product.image = ''
+    product.value.image = ''
     imagePreview.value = null
 }
 const register = async () => {
     try {
         sending = true
         isLoading = true
-        productsStore.addProduct(product)
+        productsStore.addProduct(product.value)
         setTimeout(() => {
             router.push('/')
         }, 2000);
@@ -82,7 +80,7 @@ const register = async () => {
     }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .box-form {
     width: 100vw;
     min-height: 100vh;
